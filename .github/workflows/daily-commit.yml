@@ -13,9 +13,9 @@ jobs:
 
       - name: Add a Daily Commit (23f2005327@ds.study.iitm.ac.in)
         run: |
-          echo "Last updated: $(date)" > daily-update.txt
+          echo "Last updated: $(date)" >> daily-update.txt
           git config --global user.name "github-actions[bot]"
           git config --global user.email "23f2005327@ds.study.iitm.ac.in"
-          git add .
-          git commit -m "Automated daily update: $(date)"
+          git add daily-update.txt
+          git commit -m "Automated daily update: $(date)" || echo "No changes to commit"
           git push
